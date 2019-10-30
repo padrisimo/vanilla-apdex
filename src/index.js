@@ -31,12 +31,14 @@ const getTopAppsByHost = function(data, host) {
     .reverse();
 };
 
+/* test */
 console.log(
   "getTopAppsByHost",
   getTopAppsByHost(data, "7e6272f7-098e.dakota.biz")
 );
 
 console.log("getHostList", getHostList(data));
+/* test end */
 
 const root = document.querySelector("#root");
 root.innerHTML = App(Kids);

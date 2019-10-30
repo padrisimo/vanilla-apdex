@@ -1,3 +1,5 @@
+const HrmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   entry: "./src/index.js",
   module: {
@@ -6,6 +8,18 @@ module.exports = {
         test: /\.(js)$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
+      },
+      {
+        type: "javascript/auto",
+        test: /\.json$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
@@ -17,7 +31,9 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js"
   },
-  devServer: {
-    contentBase: "./build"
-  }
+  plugins: [
+    new HrmlWebpackPlugin({
+      template: "./src/public/index.html"
+    })
+  ]
 };
