@@ -10,16 +10,9 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
-        type: "javascript/auto",
-        test: /\.json$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[path][name].[ext]"
-            }
-          }
-        ]
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+        exclude: /node_modules/
       }
     ]
   },
