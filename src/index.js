@@ -3,7 +3,7 @@ import getHostList from "./methods/getHostList";
 import data from "./moks/hostAppData.json";
 import "./styles/styles.css";
 
-const App = children =>
+const App = () =>
   `<div class="app">
     <div class="contaiter">
       <div class="header">
@@ -13,12 +13,32 @@ const App = children =>
         </div>
         <div class="cb-label"><input type="checkbox" name="listview">Show as a list</div> 
       </div> 
+      <div class="main">
+        ${App.data.hostList
+          .map(
+            host => `
+          <div class="card">
+            <div class="card-title">${host}</div>
+            <ul>
+            ${getTopAppsByHost(data, host)
+              .map(
+                tops =>
+                  `<li><span className="apdex">${tops.apdex}</span><span className="app-name">${tops.name}</span></li>`
+              )
+              .join("")}
+            </ul>
+          </div>
+          `
+          )
+          .join("")}
+      </div> 
     </div>   
   </div>`;
 
 App.data = {
   title: "Apps by Host",
-  subTitle: "for user spongebobsquarepants@krustykrab.bb"
+  subTitle: "for user spongebobsquarepants@krustykrab.bb",
+  hostList: getHostList(data)
 };
 
 /* test */

@@ -56,10 +56,6 @@ img {
   max-width: 840px;
 }
 
-span {
-  background: white;
-}
-
 .header {
   display: flex;
   flex-direction: row;
@@ -100,4 +96,8 @@ span {
   justify-content: flex-end;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.main {
+  margin-top: 30px;
 }
