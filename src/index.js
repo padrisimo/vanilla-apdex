@@ -21,9 +21,10 @@ const App = () =>
             <div class="card-title">${host}</div>
             <ul>
             ${getTopAppsByHost(data, host)
+              .slice(0, 5)
               .map(
                 tops =>
-                  `<li><span className="apdex">${tops.apdex}</span><span className="app-name">${tops.name}</span></li>`
+                  `<li class="apps-list"><span class="apdex">${tops.apdex}</span><span class="app-name">${tops.name}</span></li>`
               )
               .join("")}
             </ul>

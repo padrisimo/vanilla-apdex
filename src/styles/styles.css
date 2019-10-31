@@ -50,7 +50,6 @@ img {
 .contaiter {
   display: flex;
   flex-direction: column;
-  padding: 60px 30px 30px;
   background: #f1f1f1;
   flex: 1;
   max-width: 840px;
@@ -61,6 +60,7 @@ img {
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
+  padding: 60px 30px 0;
 }
 
 .title {
@@ -98,6 +98,31 @@ img {
   flex-shrink: 0;
 }
 
-.main {
-  margin-top: 30px;
+.card {
+  padding: 30px;
+  background: white;
+  margin: 30px;
+}
+
+.card-title {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.apps-list {
+  padding-top: 23px;
+}
+
+.app-name {
+  color: #4a4a4a;
+  line-height: 1.2;
+}
+
+.apdex {
+  color: #4a4a4a;
+  opacity: 62%;
+  line-height: 1.5;
+  font-size: 13px;
+  margin-right: 1rem;
 }
