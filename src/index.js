@@ -70,8 +70,6 @@ App.data = {
   checked: false
 };
 
-App.onclick = () => alert("caca");
-
 const root = document.querySelector("#root");
 root.innerHTML = App();
 
