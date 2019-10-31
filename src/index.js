@@ -3,6 +3,13 @@ import getHostList from "./methods/getHostList";
 import data from "./moks/hostAppData.json";
 import "./styles/styles.css";
 
+window.checked = false;
+
+window.toggle = () => {
+  window.checked = !window.checked;
+  root.innerHTML = App();
+};
+
 const App = () =>
   `<div class="app">
     <div class="contaiter">
@@ -11,9 +18,14 @@ const App = () =>
           <h1>${App.data.title}</h1>
           <div>${App.data.subTitle}</div>
         </div>
-        <div class="cb-label"><input type="checkbox" name="listview">Show as a list</div> 
+        <div class="cb-label">
+          <input type="checkbox" ${
+            window.checked ? "checked" : ""
+          } onclick="toggle()" name="listview" class="checkbox">
+          ${window.checked ? App.data.listLabel : App.data.gridLabel}
+        </div> 
       </div> 
-      <div class="main">
+      <div class=${window.checked ? "main" : ""}>
         ${App.data.hostList
           .map(
             host => `
@@ -39,8 +51,13 @@ const App = () =>
 App.data = {
   title: "Apps by Host",
   subTitle: "for user spongebobsquarepants@krustykrab.bb",
-  hostList: getHostList(data)
+  hostList: getHostList(data),
+  listLabel: "Show as list",
+  gridLabel: "Show as an awesome grid",
+  checked: false
 };
+
+App.onclick = () => alert("caca");
 
 /* test */
 console.log(

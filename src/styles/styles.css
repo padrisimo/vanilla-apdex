@@ -126,3 +126,16 @@ img {
   font-size: 13px;
   margin-right: 1rem;
 }
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  -webkit-flex-flow: row wrap;
+  padding: 30px;
+}
+
+.main > div.card {
+  width: 375px;
+  margin: 0;
+  margin-bottom: 30px;
+}
