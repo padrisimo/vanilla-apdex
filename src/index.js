@@ -10,6 +10,12 @@ window.toggle = () => {
   root.innerHTML = App();
 };
 
+window.showVersion = e => {
+  e = e || window.event;
+  var target = e.target || e.srcElement;
+  console.log("release version: ", target.id);
+};
+
 const App = () =>
   `<div class="app">
     <div class="contaiter">
@@ -36,7 +42,14 @@ const App = () =>
               .slice(0, 5)
               .map(
                 tops =>
-                  `<li class="apps-list"><span class="apdex">${tops.apdex}</span><span class="app-name">${tops.name}</span></li>`
+                  `<li class="apps-list">
+                    <span class="apdex">${tops.apdex}</span>
+                    <span 
+                      class="app-name" 
+                      onclick="showVersion(event)" 
+                      id=${tops.version}
+                    >${tops.name}</span>
+                  </li>`
               )
               .join("")}
             </ul>
@@ -59,14 +72,17 @@ App.data = {
 
 App.onclick = () => alert("caca");
 
-/* test */
-console.log(
-  "getTopAppsByHost",
-  getTopAppsByHost(data, "7e6272f7-098e.dakota.biz")
-);
-
-console.log("getHostList", getHostList(data));
-/* test end */
-
 const root = document.querySelector("#root");
 root.innerHTML = App();
+
+/* methods for console */
+
+window.removeAppFromHosts = appName => {
+  data.filer(app => app.name !== name);
+  root.innerHTML = App();
+};
+
+window.addAppToHosts = app => {
+  data.push(app);
+  root.innerHTML = App();
+};

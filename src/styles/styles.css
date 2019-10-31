@@ -117,6 +117,7 @@ img {
 .app-name {
   color: #4a4a4a;
   line-height: 1.2;
+  cursor: pointer;
 }
 
 .apdex {
